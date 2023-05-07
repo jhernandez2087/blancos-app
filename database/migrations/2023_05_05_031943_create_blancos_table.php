@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('blancos', function (Blueprint $table) {
             $table->id();
+            $table->string('categoria');
+            $table->string('color');
+            $table->string('tamaño');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

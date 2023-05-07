@@ -7,7 +7,21 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Bienvenido al registro de blancos</p>
+
+    <form action="{{route('admin.blancos.registro')}}" method="POST">
+        @csrf
+        <label for="categoria">Categoria</label>
+        <input  name="categoria" type="text" >
+        <br>
+        <label for="color">Color</label>
+        <input  name="color" type="text" >
+        <br>
+        <label for="tamano">Tamaño</label>
+        <input  name="tamano" type="text" >
+        <br>
+        <button type="submit">Registrar</button>
+    </form>
 @stop
 
 @section('css')

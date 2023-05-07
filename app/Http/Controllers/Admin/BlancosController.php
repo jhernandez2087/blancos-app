@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegistroDeBlancosRequest;
+use App\Models\Blanco;
 use Illuminate\Http\Request;
 
 class BlancosController extends Controller
@@ -22,6 +24,18 @@ class BlancosController extends Controller
     public function registro()
     {
         return view('admin.blancos.registro');
+    }
+
+    public function enviarRegistro(RegistroDeBlancosRequest $request)
+    {
+        $blanco = new Blanco();
+        $blanco->categoria = $request->input('categoria');
+        $blanco->color = $request->input('color');
+        $blanco->tamaño = $request->input('tamaño');
+        $blanco->status = $request->input('status');
+        $blanco->save();
+        
+        return redirect()->back()->with('success', 'El registro se ha guardado exitosamente.');
     }
 
     public function entrada()
