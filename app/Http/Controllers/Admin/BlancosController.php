@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 class BlancosController extends Controller
 {
+    protected $paginationTheme = 'bootstrap';
     /**
      * Display a listing of the resource.
      */
@@ -71,7 +72,9 @@ class BlancosController extends Controller
 
     public function listado()
     {
-        return view('admin.blancos.listado');
+        $blancos = Blanco::paginate(5);
+
+        return view('admin.blancos.listado',compact('blancos'));
     }
 
     public function salida()

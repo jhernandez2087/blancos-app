@@ -13,6 +13,9 @@ Route::get('blancos/registro', [BlancosController::class,'registro'])->name('adm
 
 Route::get('blancos/listado', [BlancosController::class,'listado'])->name('admin.blancos.listado');
 
+Route::get('blancos/edit/{id}', [BlancosController::class,'edit'])->name('admin.blancos.edit');
+
+
 Route::get('blancos/entrada', [BlancosController::class,'entrada'])->name('admin.blancos.entrada');
 
 Route::get('blancos/salida', [SalidaBlancosController::class,'index'])->name('admin.blancos.salida');
