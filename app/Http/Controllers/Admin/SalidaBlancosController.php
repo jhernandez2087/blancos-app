@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SalidaDeBlancosRequest;
+use App\Models\Blanco;
 use Illuminate\Http\Request;
 
 class SalidaBlancosController extends Controller
@@ -18,9 +20,23 @@ class SalidaBlancosController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function salida(SalidaDeBlancosRequest $request)
     {
-        //
+
+        $serialnumber = $request->serialnumber;
+
+        // Verificar si el número de serie existe en la base de datos
+        $blanco = Blanco::where('serialnumber', $serialnumber)->first();
+
+        if (!$blanco) {
+            return redirect()->back()->withErrors(['error' => 'El número de serie "'.$serialnumber.'" no existe.']);
+        }
+
+        // Incrementar el campo numSalidas en 1
+        $blanco->numSalidas += 1;
+        $blanco->save();
+
+        return redirect()->back()->with('success', 'Salida "'.$serialnumber.'" registrada exitosamente.');
     }
 
     /**

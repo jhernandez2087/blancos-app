@@ -17,5 +17,7 @@ Route::get('blancos/entrada', [BlancosController::class,'entrada'])->name('admin
 
 Route::get('blancos/salida', [SalidaBlancosController::class,'index'])->name('admin.blancos.salida');
 
+Route::post('blancos/salida', [SalidaBlancosController::class,'salida'])->name('admin.blancos.salida');
+
 Route::post('blancos/registro', [BlancosController::class,'enviarRegistro'])->name('admin.blancos.registro');
 

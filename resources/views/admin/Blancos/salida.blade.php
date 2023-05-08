@@ -12,12 +12,31 @@
             <div class="card">
                 <div class="card-body">
                     <p>Bienvenido a la salida de blancos</p>
+                    
+                    <!-- Mensajes de error -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <!-- Mensaje de éxito -->
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
 
                     <form action="{{ route('admin.blancos.salida') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="numero_serie">Número de Serie</label>
-                            <input type="text" name="numero_serie" class="form-control">
+                            <label for="serialnumber">Número de Serie</label>
+                            <input type="text" name="serialnumber" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary">Dar Salida</button>
                     </form>
