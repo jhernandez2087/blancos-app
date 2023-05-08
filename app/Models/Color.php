@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blanco extends Model
+class Color extends Model
 {
-    protected $fillable = ['categoria', 'color', 'tamano','numEntradas','numSalidas', 'status'];
+    protected $table = 'colores';
+    
+    protected $fillable = ['nombre', 'abreviatura'];
 }

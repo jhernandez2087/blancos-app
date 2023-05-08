@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blancos', function (Blueprint $table) {
+        Schema::create('colores', function (Blueprint $table) {
             $table->id();
-            $table->string('categoria');
-            $table->string('color');
-            $table->string('tamano');
-            $table->tinyInteger('numEntradas');
-            $table->tinyInteger('numSalidas');
-            $table->tinyInteger('status');
-            $table->string('serialnumber')->nullable();
+            $table->string('nombre');
+            $table->string('abreviatura');
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blancos');
+        Schema::dropIfExists('colores');
     }
 };

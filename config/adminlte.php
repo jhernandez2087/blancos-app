@@ -311,6 +311,11 @@ return [
             'icon' => 'fas fa-fw fa-tshirt',
         ],
         [
+            'text' => 'Listado',
+            'url'  => 'admin/blancos/listado',
+            'icon' => 'fas fa-fw fa-tshirt',
+        ],   
+        [
             'text' => 'Entrada',
             'url'  => 'admin/blancos/entrada',
             'icon' => 'fas fa-fw fa-tshirt',
